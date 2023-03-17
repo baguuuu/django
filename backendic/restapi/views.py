@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 
-from models import Configuration, Usrs, Grp
-from serializer import ConfigurationSerializer, UsrsSerializer, GrpSerializer
+from restapi.models import Configuration, Usrs, Grp
+from restapi.serializer import ConfigurationSerializer, UsrsSerializer, GrpSerializer
 # Create your views here.
 
 class ConfigurationViewSet(viewsets.ModelViewSet):
@@ -10,10 +10,10 @@ class ConfigurationViewSet(viewsets.ModelViewSet):
     serializer_class = ConfigurationSerializer
 
 class UsrsViewSet(viewsets.ModelViewSet):
-    queryset = UsrsSerializer.objects.all()
+    queryset = Usrs.objects.all()
     serializer_class = UsrsSerializer
 
 class GrpViewSet(viewsets.ModelViewSet):
-    queryset = GrpSerializer.objects.all()
+    queryset = Grp.objects.all()
     serializer_class = GrpSerializer
 

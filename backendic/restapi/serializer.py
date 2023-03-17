@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Configuration, Usrs, Grp
+from restapi.models import Configuration, Usrs, Grp
 
 class ConfigurationSerializer(serializers.ModelSerializer):
     class Meta:

@@ -6,16 +6,16 @@ class Configuration(models.Model):
     minmax = models.IntegerField()
 
 class Usrs(models.Model):
-    idusr = models.IntegerField(primary_key=True)
+    usr_id = models.AutoField(primary_key=True)
     nameusr = models.CharField(max_length=255)
 
-    idgrp = models.ForeignKey('Grp', models.SET_NULL,
+    grp_id = models.ForeignKey('Grp', models.SET_NULL,
     blank=True,
     null=True,)
 
 class Grp(models.Model):
-    idgrp = models.IntegerField(primary_key=True)
+    grp_id = models.AutoField(primary_key=True)
     namegrp = models.CharField(max_length=255)
-    islast = models.IntegerField()
+    islast = models.IntegerField(default=None, blank=True, null=True)
 
 
