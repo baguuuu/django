@@ -12,6 +12,11 @@ class UsrsSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class GrpSerializer(serializers.ModelSerializer):
+    nbUser = serializers.SerializerMethodField()
+
     class Meta:
         model = Grp
         fields = '__all__'
+    def get_nbUser(self, obj):
+        return Usrs.objects.filter(grp_id=obj.grp_id).count()
+
